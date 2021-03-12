@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from "./components/Navbar/Navbar"; 
-import Footer from  "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import LoginForm from './components/LoginForm';
 import './App.css';
 
@@ -9,30 +9,46 @@ import './App.css';
 function App() {
   const adminUser = {
     email: "AitAdmin@StockBot.com",
-    password: "Admin123" 
+    password: "Admin123"
 
   }
-  const [user, setUser] = useState({name: "", email:""});
+  const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
 
-const Login = details => {
-  console.log(details);
-}
+  const Login = details => {
+    console.log(details);
 
-const Logout = () => {
-  console.log("Logout");
-}
+    if(details.email == adminUser.email && details.password == adminUser.password){
+      console.log("Logged in");
+      setUser({
+        name: details.name,
+        email: details.email
+      });
+    }
+    else{
+      console.log("Details do not match.");
+    }
+
+  }
+
+  const Logout = () => {
+    console.log("Logout");
+    setUser({ 
+      name: "", 
+      email: "" 
+    });
+  }
 
   return (
     <div className="App">
       <Navbar />
-      {(user.email !="") ? (
+      {(user.email != "") ? (
         <div className="welcome">
           <h2>Welcome, <span>{user.name}</span></h2>
-          <button> Logout </button>
-          </div>
-      ) : ( 
-        <LoginForm />
+          <button onClick={Logout}> Logout </button>
+        </div>
+      ) : (
+        <LoginForm Login={Login} error={error} />
       )}
       <Footer />
     </div>
