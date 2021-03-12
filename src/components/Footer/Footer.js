@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Footer.css'
 
 class Footer extends Component {
 
@@ -9,8 +9,10 @@ class Footer extends Component {
         
         return (
             <div>
+            <nav className="FooterItems">
+                <h1 className="Font">© 2021 Alvache Law, Dinesh Maran, Victor Cardoso. All Rights Reserved.</h1>
 
-                <h1>Test</h1>
+            </nav>
             </div>
 
 
