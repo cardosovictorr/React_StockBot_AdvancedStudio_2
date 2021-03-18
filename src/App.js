@@ -27,6 +27,7 @@ function App() {
     }
     else{
       console.log("Details do not match.");
+      setError("Details do not match.");
     }
 
   }
@@ -40,8 +41,10 @@ function App() {
   }
 
   return (
+    <div className="Page">
+            <Navbar />
     <div className="App">
-      <Navbar />
+
       {(user.email != "") ? (
         <div className="welcome">
           <h2>Welcome, <span>{user.name}</span></h2>
@@ -50,7 +53,9 @@ function App() {
       ) : (
         <LoginForm Login={Login} error={error} />
       )}
-      <Footer />
+
+    </div>
+          <Footer />
     </div>
   );
 }
