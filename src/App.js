@@ -10,7 +10,7 @@ function App() {
   const adminUser = {
     email: "AitAdmin@StockBot.com",
     password: "Admin123"
-
+//hi test
   }
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
